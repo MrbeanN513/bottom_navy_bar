@@ -18,7 +18,7 @@ class SideBarr extends StatelessWidget {
     @required this.onItemSelected,
     this.curve = Curves.linear,
   })  : assert(items != null),
-        assert(items.length >= 2 && items.length <= 5),
+        assert(items.length >= 2 && items.length <= 8),
         assert(onItemSelected != null),
         assert(animationDuration != null),
         assert(curve != null),
