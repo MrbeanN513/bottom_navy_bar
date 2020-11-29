@@ -1,16 +1,9 @@
-library bottom_navy_bar;
-
 import 'package:flutter/material.dart';
+
 import 'package:flutter/widgets.dart';
 
-
-
-
-
-
-class BottomNavyBar extends StatelessWidget {
-
-  BottomNavyBar({
+class SideBarr extends StatelessWidget {
+  SideBarr({
     Key key,
     this.selectedIndex = 0,
     this.showElevation = true,
@@ -19,52 +12,39 @@ class BottomNavyBar extends StatelessWidget {
     this.itemCornerRadius = 50,
     this.containerHeight = 56,
     this.animationDuration = const Duration(milliseconds: 270),
-    this.mainAxisAlignment = MainAxisAlignment.spaceBetween,
+    this.mainAxisAlignment = MainAxisAlignment.start,
+    this.crossAxisAlignment = CrossAxisAlignment.start,
     @required this.items,
     @required this.onItemSelected,
     this.curve = Curves.linear,
-  }) : assert(items != null),
-       assert(items.length >= 2 && items.length <= 5),
-       assert(onItemSelected != null),
-       assert(animationDuration != null),
-       assert(curve != null),
-       super(key: key);
+  })  : assert(items != null),
+        assert(items.length >= 2 && items.length <= 5),
+        assert(onItemSelected != null),
+        assert(animationDuration != null),
+        assert(curve != null),
+        super(key: key);
 
-  
-  
   final int selectedIndex;
 
-  
   final double iconSize;
 
-  
-  
   final Color backgroundColor;
 
-  
   final bool showElevation;
 
-  
   final Duration animationDuration;
 
-  
-  
-  final List<BottomNavyBarItem> items;
+  final List<SideBarrItem> items;
 
-  
   final ValueChanged<int> onItemSelected;
 
-  
-  
   final MainAxisAlignment mainAxisAlignment;
+  final CrossAxisAlignment crossAxisAlignment;
 
-  
   final double itemCornerRadius;
 
-  
   final double containerHeight;
 
-  
   final Curve curve;
 
   @override
@@ -86,10 +66,11 @@ class BottomNavyBar extends StatelessWidget {
       ),
       child: SafeArea(
         child: Container(
-          width: double.infinity,
-          height: containerHeight,
+          width: 200,
+          height: double.maxFinite,
           padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
-          child: Row(
+          child: Column(
+            crossAxisAlignment: crossAxisAlignment,
             mainAxisAlignment: mainAxisAlignment,
             children: items.map((item) {
               var index = items.indexOf(item);
@@ -116,7 +97,7 @@ class BottomNavyBar extends StatelessWidget {
 class _ItemWidget extends StatelessWidget {
   final double iconSize;
   final bool isSelected;
-  final BottomNavyBarItem item;
+  final SideBarrItem item;
   final Color backgroundColor;
   final double itemCornerRadius;
   final Duration animationDuration;
@@ -146,8 +127,8 @@ class _ItemWidget extends StatelessWidget {
       container: true,
       selected: isSelected,
       child: AnimatedContainer(
-        width: isSelected ? 130 : 50,
-        height: double.maxFinite,
+        width: isSelected ? double.maxFinite : double.maxFinite,
+        height: 50,
         duration: animationDuration,
         curve: curve,
         decoration: BoxDecoration(
@@ -159,7 +140,7 @@ class _ItemWidget extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           physics: NeverScrollableScrollPhysics(),
           child: Container(
-            width: isSelected ? 130 : 50,
+            width: isSelected ? 130 : 130,
             padding: EdgeInsets.symmetric(horizontal: 8),
             child: Row(
               mainAxisSize: MainAxisSize.max,
@@ -171,27 +152,31 @@ class _ItemWidget extends StatelessWidget {
                     size: iconSize,
                     color: isSelected
                         ? item.activeColor.withOpacity(1)
-                        : item.inactiveColor == null
+                        : item.inactiveColor == Colors.black
                             ? item.activeColor
                             : item.inactiveColor,
                   ),
                   child: item.icon,
                 ),
-                if (isSelected)
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 4),
-                      child: DefaultTextStyle.merge(
-                        style: TextStyle(
-                          color: item.activeColor,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        maxLines: 1,
-                        textAlign: item.textAlign,
-                        child: item.title,
+                // if (isSelected)
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 4),
+                    child: DefaultTextStyle.merge(
+                      style: TextStyle(
+                        color: isSelected
+                            ? item.activeColor.withOpacity(1)
+                            : item.inactiveColor == Colors.black
+                                ? item.activeColor
+                                : item.inactiveColor,
+                        fontWeight: FontWeight.bold,
                       ),
+                      maxLines: 1,
+                      textAlign: item.textAlign,
+                      child: item.title,
                     ),
                   ),
+                ),
               ],
             ),
           ),
@@ -201,34 +186,23 @@ class _ItemWidget extends StatelessWidget {
   }
 }
 
-
-class BottomNavyBarItem {
-
-  BottomNavyBarItem({
+class SideBarrItem {
+  SideBarrItem({
     @required this.icon,
     @required this.title,
     this.activeColor = Colors.blue,
     this.textAlign,
     this.inactiveColor,
-  }) : assert(icon != null),
-       assert(title != null);
+  })  : assert(icon != null),
+        assert(title != null);
 
-  
   final Widget icon;
 
-  
   final Widget title;
 
-  
-  
   final Color activeColor;
 
-  
   final Color inactiveColor;
 
-  
-  
-  
   final TextAlign textAlign;
-
 }
