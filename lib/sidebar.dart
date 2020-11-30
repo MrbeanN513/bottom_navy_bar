@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 class SideBarr extends StatelessWidget {
   SideBarr({
     Key key,
-    this.padding =EdgeInsets.symmetric(vertical: 50, horizontal: 8),
+    this.padding = const EdgeInsets.symmetric(vertical: 50, horizontal: 8),
     this.height = 500,
     this.width = 200,
     this.selectedIndex = 0,
@@ -73,13 +73,12 @@ class SideBarr extends StatelessWidget {
         child: Container(
           width: width,
           height: height,
-<<<<<<< HEAD
+
           padding: padding,
-=======
-          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 8),
+
           child:SingleChildScrollView(
                                   scrollDirection: Axis.vertical,
->>>>>>> 01a0c9679b8bc11a98e00cff1376d179f1e4a1bd
+
           child: Column(
             crossAxisAlignment: crossAxisAlignment,
             mainAxisAlignment: mainAxisAlignment,
