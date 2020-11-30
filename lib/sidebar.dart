@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 class SideBarr extends StatelessWidget {
   SideBarr({
     Key key,
+    this.padding,
     this.height = 500,
     this.width = 200,
     this.selectedIndex = 0,
@@ -20,7 +21,7 @@ class SideBarr extends StatelessWidget {
     @required this.onItemSelected,
     this.curve = Curves.linear,
   })  : assert(items != null),
-        assert(items.length >= 2 && items.length <= 5),
+        assert(items.length >= 2 && items.length <= 18),
         assert(onItemSelected != null),
         assert(animationDuration != null),
         assert(curve != null),
@@ -48,7 +49,7 @@ class SideBarr extends StatelessWidget {
   final double containerHeight;
   final double height;
   final double width;
-
+  final EdgeInsetsGeometry padding;
   final Curve curve;
 
   @override
@@ -72,7 +73,7 @@ class SideBarr extends StatelessWidget {
         child: Container(
           width: width,
           height: height,
-          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 8),
+          padding: padding,
           child: Column(
             crossAxisAlignment: crossAxisAlignment,
             mainAxisAlignment: mainAxisAlignment,
