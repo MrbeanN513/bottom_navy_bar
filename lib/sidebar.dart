@@ -5,6 +5,8 @@ import 'package:flutter/widgets.dart';
 class SideBarr extends StatelessWidget {
   SideBarr({
     Key key,
+    this.height = 500,
+    this.width = 200,
     this.selectedIndex = 0,
     this.showElevation = true,
     this.iconSize = 24,
@@ -44,6 +46,8 @@ class SideBarr extends StatelessWidget {
   final double itemCornerRadius;
 
   final double containerHeight;
+  final double height;
+  final double width;
 
   final Curve curve;
 
@@ -66,8 +70,8 @@ class SideBarr extends StatelessWidget {
       ),
       child: SafeArea(
         child: Container(
-          width: 200,
-          height: double.maxFinite,
+          width: width,
+          height: height,
           padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
           child: Column(
             crossAxisAlignment: crossAxisAlignment,
