@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 class SideBarr extends StatelessWidget {
   SideBarr({
     Key key,
-    this.padding =  const EdgeInsets.symmetric(vertical: 50, horizontal: 8),
+  
     this.height = 500,
     this.width = 200,
     this.selectedIndex = 0,
@@ -49,7 +49,7 @@ class SideBarr extends StatelessWidget {
   final double containerHeight;
   final double height;
   final double width;
-  final EdgeInsetsGeometry padding;
+
   final Curve curve;
 
   @override
@@ -74,7 +74,7 @@ class SideBarr extends StatelessWidget {
           width: width,
           height: height,
 
-          padding: padding,
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 8),
 
           child:SingleChildScrollView(
                                   scrollDirection: Axis.vertical,
