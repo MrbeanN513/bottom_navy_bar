@@ -73,6 +73,8 @@ class SideBarr extends StatelessWidget {
           width: width,
           height: height,
           padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 8),
+          SingleChildScrollView(
+                                  scrollDirection: Axis.vertical,
           child: Column(
             crossAxisAlignment: crossAxisAlignment,
             mainAxisAlignment: mainAxisAlignment,
@@ -91,7 +93,7 @@ class SideBarr extends StatelessWidget {
                 ),
               );
             }).toList(),
-          ),
+          ),),
         ),
       ),
     );
