@@ -18,7 +18,7 @@ class SideBarr extends StatelessWidget {
     @required this.onItemSelected,
     this.curve = Curves.linear,
   })  : assert(items != null),
-        assert(items.length >= 2 && items.length <= 8),
+        assert(items.length >= 2 && items.length <= 18),
         assert(onItemSelected != null),
         assert(animationDuration != null),
         assert(curve != null),
@@ -67,7 +67,7 @@ class SideBarr extends StatelessWidget {
       child: SafeArea(
         child: Container(
           width: 200,
-          height: double.maxFinite,
+          height: double.maxFinite -kToolbarHeight,
           padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
           child: Column(
             crossAxisAlignment: crossAxisAlignment,
