@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 class SideBarr extends StatelessWidget {
   SideBarr({
     Key key,
-    this.padding =  EdgeInsets.symmetric(vertical: 50, horizontal: 8),
+    this.padding =  const EdgeInsets.symmetric(vertical: 50, horizontal: 8),
     this.height = 500,
     this.width = 200,
     this.selectedIndex = 0,
