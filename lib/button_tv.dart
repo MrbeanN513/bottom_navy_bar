@@ -78,7 +78,9 @@ class _SidebarDpadState extends State<SidebarDpad>
 
   @override
   Widget build(BuildContext context) {
-    return RawMaterialButton(
+    return 
+      Container(height:10,width:60
+      RawMaterialButton(
       splashColor: Colors.transparent,
       hoverColor: Colors.black,
       onLongPress: onLongPress,
@@ -87,7 +89,7 @@ class _SidebarDpadState extends State<SidebarDpad>
       focusColor: Colors.transparent,
       focusElevation: 0,
       child: buildCover(context),
-    );
+    ),);
   }
 
   Widget buildCover(BuildContext context) {
@@ -97,8 +99,8 @@ class _SidebarDpadState extends State<SidebarDpad>
       child: Column(
         children: <Widget>[
           Container(
-            height: 56,
-            width: 132,
+            height: 10,
+            width: 60,
             child: Container(
               decoration: _ami
                   ? BoxDecoration(
@@ -106,7 +108,7 @@ class _SidebarDpadState extends State<SidebarDpad>
                         width: 1,
                         color: Colors.redAccent[700],
                       ),
-                      borderRadius: BorderRadius.all(Radius.circular(50)))
+                      borderRadius: BorderRadius.all(Radius.circular(10)))
                   : BoxDecoration(
                       border: Border.all(width: 0, color: Colors.transparent),
                     ),
