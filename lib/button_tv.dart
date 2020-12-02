@@ -31,7 +31,8 @@ class _SidebarDpadState extends State<SidebarDpad>
 
     node.addListener(onFocusChange);
     controller = AnimationController(
-        duration: const Duration(milliseconds: 0),
+         duration: const Duration(milliseconds: 10),
+        vsync: this,
         lowerBound: 0.9,
         upperBound: 1);
     animation = CurvedAnimation(parent: controller, curve: Curves.easeIn);
@@ -96,12 +97,12 @@ class _SidebarDpadState extends State<SidebarDpad>
         children: <Widget>[
           Container(
             height: 56,
-            width: 130,
+            width: 132,
             child: Container(
               decoration: _ami
                   ? BoxDecoration(
                       border: Border.all(
-                        width: 3,
+                        width: 1,
                         color: Colors.redAccent[700],
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(50)))
