@@ -1,3 +1,4 @@
+import 'package:bottom_navy_bar/button_tv.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/widgets.dart';
@@ -5,7 +6,6 @@ import 'package:flutter/widgets.dart';
 class SideBarr extends StatelessWidget {
   SideBarr({
     Key key,
-  
     this.height = 500,
     this.width = 200,
     this.selectedIndex = 0,
@@ -73,31 +73,32 @@ class SideBarr extends StatelessWidget {
         child: Container(
           width: width,
           height: height,
-
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 8),
-
-          child:SingleChildScrollView(
-                                  scrollDirection: Axis.vertical,
-
-          child: Column(
-            crossAxisAlignment: crossAxisAlignment,
-            mainAxisAlignment: mainAxisAlignment,
-            children: items.map((item) {
-              var index = items.indexOf(item);
-              return GestureDetector(
-                onTap: () => onItemSelected(index),
-                child: _ItemWidget(
-                  item: item,
-                  iconSize: iconSize,
-                  isSelected: index == selectedIndex,
-                  backgroundColor: bgColor,
-                  itemCornerRadius: itemCornerRadius,
-                  animationDuration: animationDuration,
-                  curve: curve,
-                ),
-              );
-            }).toList(),
-          ),),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              crossAxisAlignment: crossAxisAlignment,
+              mainAxisAlignment: mainAxisAlignment,
+              children: items.map((item) {
+                var index = items.indexOf(item);
+                return GestureDetector(
+                  onTap: () => onItemSelected(index),
+                  child: SidebarDpad(
+                    onTap: () => onItemSelected(index),
+                    child: _ItemWidget(
+                      item: item,
+                      iconSize: iconSize,
+                      isSelected: index == selectedIndex,
+                      backgroundColor: bgColor,
+                      itemCornerRadius: itemCornerRadius,
+                      animationDuration: animationDuration,
+                      curve: curve,
+                    ),
+                  ),
+                );
+              }).toList(),
+            ),
+          ),
         ),
       ),
     );

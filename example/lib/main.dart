@@ -1,16 +1,22 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:bottom_navy_bar/sidebar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      home: MyHomePage(),
-    );
+    return Shortcuts(
+        // needed for AndroidTV to be able to select
+        shortcuts: {
+          LogicalKeySet(LogicalKeyboardKey.select): const ActivateIntent(),
+        },
+        child: MaterialApp(
+          title: 'Flutter Demo',
+          home: MyHomePage(),
+        ));
   }
 }
 
@@ -52,9 +58,6 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Icon(Icons.add),
         ),
         drawer: SideBarr(
-          padding: orientation == Orientation.landscape
-              ? EdgeInsets.symmetric(vertical: 6, horizontal: 8)
-              : EdgeInsets.symmetric(vertical: 50, horizontal: 8),
           width: 200,
           height: MediaQuery.of(context).size.height,
           selectedIndex: _currentIndex,
