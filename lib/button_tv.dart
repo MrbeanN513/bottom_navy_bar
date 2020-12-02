@@ -79,6 +79,7 @@ class _SidebarDpadState extends State<SidebarDpad>
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
+      splashColor: Colors.transparent,
       hoverColor: Colors.black,
       onLongPress: onLongPress,
       onPressed: onTap,
