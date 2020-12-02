@@ -80,7 +80,7 @@ class _SidebarDpadState extends State<SidebarDpad>
   Widget build(BuildContext context) {
     return Container(
       height: 30,
-      width: 60,
+      width: 100,
       child: RawMaterialButton(
         splashColor: Colors.transparent,
         hoverColor: Colors.black,
@@ -102,7 +102,7 @@ class _SidebarDpadState extends State<SidebarDpad>
         children: <Widget>[
           Container(
             height: 30,
-            width: 60,
+            width: 100,
             child: Container(
               decoration: _ami
                   ? BoxDecoration(
