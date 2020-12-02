@@ -31,7 +31,7 @@ class _SidebarDpadState extends State<SidebarDpad>
 
     node.addListener(onFocusChange);
     controller = AnimationController(
-         duration: const Duration(milliseconds: 10),
+        duration: const Duration(milliseconds: 10),
         vsync: this,
         lowerBound: 0.9,
         upperBound: 1);
@@ -78,18 +78,20 @@ class _SidebarDpadState extends State<SidebarDpad>
 
   @override
   Widget build(BuildContext context) {
-    return 
-      Container(height:10,width:60,
-      child:RawMaterialButton(
-      splashColor: Colors.transparent,
-      hoverColor: Colors.black,
-      onLongPress: onLongPress,
-      onPressed: onTap,
-      focusNode: node,
-      focusColor: Colors.transparent,
-      focusElevation: 0,
-      child: buildCover(context),
-    ),);
+    return Container(
+      height: 30,
+      width: 60,
+      child: RawMaterialButton(
+        splashColor: Colors.transparent,
+        hoverColor: Colors.black,
+        onLongPress: onLongPress,
+        onPressed: onTap,
+        focusNode: node,
+        focusColor: Colors.transparent,
+        focusElevation: 0,
+        child: buildCover(context),
+      ),
+    );
   }
 
   Widget buildCover(BuildContext context) {
@@ -99,7 +101,7 @@ class _SidebarDpadState extends State<SidebarDpad>
       child: Column(
         children: <Widget>[
           Container(
-            height: 10,
+            height: 30,
             width: 60,
             child: Container(
               decoration: _ami
