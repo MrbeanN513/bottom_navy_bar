@@ -84,17 +84,14 @@ class SideBarrDrawer extends StatelessWidget {
                 var index = items.indexOf(item);
                 return GestureDetector(
                   onTap: () => onItemSelected(index),
-                  child: SidebarDpad(
-                    onTap: () => onItemSelected(index),
-                    child: _ItemWidget(
-                      item: item,
-                      iconSize: iconSize,
-                      isSelected: index == selectedIndex,
-                      backgroundColor: bgColor,
-                      itemCornerRadius: itemCornerRadius,
-                      animationDuration: animationDuration,
-                      curve: curve,
-                    ),
+                  child: _ItemWidget(
+                    item: item,
+                    iconSize: iconSize,
+                    isSelected: index == selectedIndex,
+                    backgroundColor: bgColor,
+                    itemCornerRadius: itemCornerRadius,
+                    animationDuration: animationDuration,
+                    curve: curve,
                   ),
                 );
               }).toList(),
