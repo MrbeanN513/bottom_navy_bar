@@ -1,3 +1,4 @@
+
 import 'package:bottom_navy_bar/button_tv.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +7,7 @@ import 'package:flutter/widgets.dart';
 class SideBarrDrawer extends StatelessWidget {
   SideBarrDrawer({
     Key key,
+    this.padding,
     this.height = 500,
     this.width = 200,
     this.selectedIndex = 0,
@@ -49,7 +51,7 @@ class SideBarrDrawer extends StatelessWidget {
   final double containerHeight;
   final double height;
   final double width;
-
+  final EdgeInsetsGeometry padding;
   final Curve curve;
 
   @override
@@ -73,9 +75,7 @@ class SideBarrDrawer extends StatelessWidget {
         child: Container(
           width: width,
           height: height,
-          padding: const EdgeInsets.symmetric(
-            vertical: 6,
-          ),
+          padding: padding,
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
